@@ -1,0 +1,41 @@
+<p>one works!</p>
+
+<a routerLink="2">Go two</a><a routerLink="3">Go tre</a>
+
+<ng-container *ngIf="(statusOne | async) as status">
+
+  <div *ngIf="status.loading">loading...</div>
+
+  <div *ngIf="status.success">
+    <ul>
+      <li *ngFor="let item of resultOne">{{ item.text }}</li>
+    </ul>
+  </div>
+
+  <div *ngIf="status.error">
+    {{ status.errorMessage }}
+  </div>
+
+</ng-container>
+
+<br>
+<hr>
+<br>
+
+<ng-container *ngIf="(statusTwo | async) as status">
+
+  <div *ngIf="status.loading">loading...</div>
+
+  <div *ngIf="status.success">
+    <ul>
+      <li *ngFor="let item of resultTwo">{{ item.text }}</li>
+    </ul>
+  </div>
+
+  <div *ngIf="status.error">
+    {{ status.errorMessage }}
+  </div>
+
+</ng-container>
+
+<button (click)="getInfo2()">Get second service</button>

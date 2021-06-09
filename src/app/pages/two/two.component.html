@@ -1,0 +1,15 @@
+<p>two works!</p>
+
+
+<a routerLink="/">Go one</a>
+
+<ng-container *ngIf="(tst$ | async) as status">
+
+  <div *ngIf="status.loading">loading...</div>
+  <div *ngIf="status.success">
+    <ul>
+      <li *ngFor="let item of result">{{ item.text }}</li>
+    </ul>
+  </div>
+
+</ng-container>
